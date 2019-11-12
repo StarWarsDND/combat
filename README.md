@@ -7,3 +7,10 @@ Directs to: ns1.digitalocean.com
 
 MySQL Database: StarWarsDND
 table: user
+
+Pending:
+* Registration - update to new MySQL database
+* Member dashboard display of profile info, based on role
+* Link to combat point calculator
+* Create table for the campaigns
+* Create pages for the campaigns
