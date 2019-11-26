@@ -9,8 +9,10 @@ MySQL Database: StarWarsDND
 table: user
 
 Pending:
-* Registration - update to new MySQL database
-* Member dashboard display of profile info, based on role
+* Registration - update to new MySQL database //completed 11/23/2019
+* Member dashboard display of profile info, based on role //completed 11/23/2019
 * Link to combat point calculator
 * Create table for the campaigns
 * Create pages for the campaigns
+
+
