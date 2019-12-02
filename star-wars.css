@@ -1,5 +1,5 @@
 h1 {
-	color:#fff;
+	color: black;
   	text-shadow:1px 1px 10px #00FF00, 1px 1px 10px #32CD32;
 	text-align: center;
 	font-size: 60px;
@@ -8,15 +8,14 @@ h1 {
 	font-weight: bold;
 	padding-bottom: 20px;
 	margin-top: 10px;
-	
+	padding-top: 20px;
 }
 
 body {
 	
 	background-image: url(starWars-no-Title.png);
-	color:#fff;
-  	text-shadow:1px 1px 10px #00FF00, 1px 1px 10px #32CD32;
-	font-family: "Gill Sans", sans-serif;
+	padding: 15px;
+	margin: 15px;
 	
 }
 
@@ -29,6 +28,7 @@ img {
     -moz-transition: -moz-transform 6s; 
     -o-transition: -o-transform 6s; 
     transition: transform 6s;
+	
 }   
  
 img:hover {
@@ -37,3 +37,54 @@ img:hover {
     -o-transform: rotate(360deg) scale(2, 2); 
     transform: rotate(360deg) scale(2.5, 2.5);
 }
+
+div.transbox {
+	margin: 30px;
+	padding: 25px;
+	
+	opacity: 0.6;
+	filter: alpha(opacity=60);	
+	color: black;
+  	text-shadow:1px 1px 10px #00FF00, 1px 1px 10px #32CD32;
+	font-family: "Gill Sans", sans-serif;
+}
+
+form {
+	margin: 30px;
+	padding: 25px;
+	
+	opacity: 0.6;
+	filter: alpha(opacity=60);	
+	color: black;
+  	text-shadow:1px 1px 10px #00FF00, 1px 1px 10px #32CD32;
+	font-family: "Gill Sans", sans-serif;
+		
+}	
+
+a:link {
+	color:#fff;
+  	text-shadow:1px 1px 10px #00FF00, 1px 1px 10px #32CD32;
+	font-family: "Gill Sans", sans-serif;
+}	
+
+a:visited {
+	color:#fff;
+  	text-shadow:1px 1px 10px #00FF00, 1px 1px 10px #32CD32;
+	font-family: "Gill Sans", sans-serif;
+}	
+
+a:hover {
+	color:#fff;
+  	text-shadow:1px 1px 10px #00FF00, 1px 1px 10px #32CD32;
+	font-family: "Gill Sans", sans-serif;
+}	
+
+a:active {
+	color:#fff;
+  	text-shadow:1px 1px 10px #00FF00, 1px 1px 10px #32CD32;
+	font-family: "Gill Sans", sans-serif;
+}	
+
+
+
+

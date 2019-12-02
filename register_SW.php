@@ -1,4 +1,12 @@
 <?php
+//******************************Registration Page for the StarWars GUI ********************//
+// WRITTEN BY: Jennifer Ayala
+// RELEASE DATE: IN DEVELOPMENT / status updated 11/18/2019
+// VERSION 1.2
+// 
+// PURPOSE: 		This file enables a new user to register with the site, page redirects to registeredSW.php
+//					if successfully registered, carrying over the session_ID
+// ********************************************************************************************* -->
 	session_start();
     $_SESSION = array();
     session_destroy();
@@ -8,13 +16,12 @@
 <html>
 	<head>
 	<title>Register</title>
-	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
-	<link rel="stylesheet" type="text/css" href="star-wars.css" />
+	<meta http-equiv="content-type" content="text/html" charset="utf-8" />
+	<link rel="stylesheet" type="text/css" href="star-wars2.css" />
 	</head>
 	<body>
 		<br>
 		<h1> Game Registration </h1>
-		<br>
 		<br>
 
 	<?php
@@ -49,7 +56,7 @@
 			}
 			if ($FormErrorCount == 0) {
 				$RegistrationForm = FALSE;
-				//include("jwalkerdb.php"); //pending file
+				
 				if ($DBConnect !== FALSE) {
 				}
 			}
@@ -61,21 +68,25 @@
 		}
 	
 	?>
-		<form method="POST" action="registeredSW.php?<?php
-				  echo SID; ?>">
-			<p>Enter your username:
-			 <input type="text" name="username" /></p>
-			<p>Enter a password for your account:
-				 <input type="password" name="password" /></p>
-			<p>Confirm your password:
-				 <input type="password" name="password2" /></p>
-			<p>Enter your character name:
-				<input type="text" name="charname" /></p>	
-			<p> Game Role:
-				<input type="text" name="role" /></p>
-			<input type="reset" name="reset" 
-				 value="Reset Registration Form" class="button"/>
-			<input type="submit" name="register" value="Register" class="button" />
-		</form>
+		
+			<form method="POST" action="registeredSW.php?<?php
+					  echo SID; ?>">
+				<p>Enter your username:
+				 <input type="text" name="username" /></p>
+				<p>Enter a password for your account:
+					 <input type="password" name="password" /></p>
+				<p>Confirm your password:
+					 <input type="password" name="password2" /></p>
+				<p>Enter your character name:
+					<input type="text" name="charname" /></p>	
+				<p> Game Role:
+					<input type="text" name="role" /></p>
+				<input type="reset" name="reset" 
+					 value="Reset Registration Form" class="button"/>
+				<input type="submit" name="register" value="Register" class="button" />
+			</form>
+
+		<br>
+		
 	</body>
 </html>

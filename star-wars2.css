@@ -2,18 +2,53 @@ h1 {
 	color:#fff;
   	text-shadow:1px 1px 10px #00FF00, 1px 1px 10px #32CD32;
 	text-align: center;
-	font-size: 60px;
+	font-size: 40px;
 	font-family: "Gill Sans", sans-serif;
 	font-style: oblique 40deg;
 	font-weight: bold;
 	padding-bottom: 20px;
+	padding-top: 20px;
+	margin-top: 10px;
+	
+}
+h2 {
+	color:#fff;
+  	text-shadow:1px 1px 10px #00FF00, 1px 1px 10px #32CD32;
+	text-align: center;
+	font-size: 20px;
+	font-family: "Gill Sans", sans-serif;
+	font-style: oblique 40deg;
+	font-weight: bold;
+	padding-bottom: 20px;
+	padding-top: 20px;
 	margin-top: 10px;
 	
 }
 
+h3 {
+	color:#fff;
+  	text-shadow:1px 1px 10px #00FF00, 1px 1px 10px #32CD32;
+	text-align: center;
+	font-size: 14px;
+	font-family: "Gill Sans", sans-serif;
+	font-style: oblique 40deg;
+	font-weight: bold;
+	padding-bottom: 20px;
+	padding-top: 20px;
+	margin-top: 10px;
+}	
+
+form {
+	padding: 15px;
+	margin: 15px;
+}	
+
+
 body {
 	
 	background-image: url(space.png);
+	padding: 15px;
+	margin: 15px;
 	color:#fff;
   	text-shadow:1px 1px 10px #00FF00, 1px 1px 10px #32CD32;
 	font-family: "Gill Sans", sans-serif;
@@ -31,21 +66,123 @@ img {
     transition: transform 6s;
 }   
  
-img:hover {
-    -webkit-transform: rotate(360deg) scale(1, 1); 
-    -moz-transform: rotate(360deg) scale(2, 2);
-    -o-transform: rotate(360deg) scale(2, 2); 
-    transform: rotate(360deg) scale(2.5, 2.5);
-}
-
-
+div.container1 {
+	width: 70%;
+	padding: 0 0 0 5px;
+	background-color: #000000;
+	border-color: white;
+	border-style: ridge;
+	color: white;
+	margin-left: 30px;
+}	
 div.container4 {
 	float: left;
-	width: 40%;
+	width: 50%;
+	margin-right: 10px;
 	padding: 0 0 5px 15px;
 	background-color: #000000;
-	color:#fff;
+	color: #fff;
+	text-shadow:none;
+	font-family: "Gill Sans", sans-serif;
+	font-size: 14px;
+	border-style: ridge;
+	border-color: white;
+}
+
+div.container5{
+	float: left;
+	width: 25%;
+	padding: 0 0 0 5px;
+	background-color: #000000;
+	border-color: white;
+	border-style: ridge;
+	color: white;
+  	text-shadow:1px 1px 10px #00FF00, 1px 1px 10px #32CD32;
+	font-family: "Gill Sans", sans-serif;
+	font-size: 14px;
+}	
+
+div.container6 {
+	float: right;
+	width: 40%;
+	padding: 0 0 0 5px;
+	background-color: #000000;
+	border-color: white;
+	border-style: ridge;
+	color: white;
   	text-shadow:1px 1px 10px #00FF00, 1px 1px 10px #32CD32;
 	font-family: "Gill Sans", sans-serif;
 	font-size: 14px;
 }
+
+table, th, td {
+     border-color:#32CD32;
+     border-style:solid;
+     border-width:1px;
+	 color: white;
+	 text-align: center;
+}
+th {
+	background-color: #f5f5f5;
+	color: black;
+	font-weight: bold;
+	text-shadow: none;
+}	
+
+td {
+	height: 20px;
+	text-shadow: none;	
+}	
+tr:hover {
+	background-color: #32CD32;
+	color: black;
+	font-weight: bold;
+}	
+table {
+     padding:20px; 
+     border-width:5px; 
+     margin-top:25px; 
+	 margin-left: 30px;
+	 margin-bottom: 20px;
+	 margin-right: 30px;
+     border-collapse:collapse;
+	 
+}
+
+a:link {
+	color:#fff;
+  	text-shadow:1px 1px 10px #00FF00, 1px 1px 10px #32CD32;
+	font-family: "Gill Sans", sans-serif;
+}	
+
+a:visited {
+	color:#fff;
+  	text-shadow:1px 1px 10px #00FF00, 1px 1px 10px #32CD32;
+	font-family: "Gill Sans", sans-serif;
+}	
+
+a:hover {
+	color:#fff;
+  	text-shadow:1px 1px 10px #00FF00, 1px 1px 10px #32CD32;
+	font-family: "Gill Sans", sans-serif;
+}	
+
+a:active {
+	color:#fff;
+  	text-shadow:1px 1px 10px #00FF00, 1px 1px 10px #32CD32;
+	font-family: "Gill Sans", sans-serif;
+}	
+
+
+footer {
+	bottom: 0;
+	left: 0;
+	position: fixed;
+	text-align: center;
+	width: 100%;	
+	background-color: black;
+	color: white;
+	text-shadow:1px 1px 10px #808080, 1px 1px 10px #A9A9A9;
+	font-family: "Lucida Console";
+}
+	

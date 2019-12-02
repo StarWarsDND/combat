@@ -1,18 +1,22 @@
 <?php
-//******************************Dashboard Page for the StarWars GUI ********************//
-// WRITTEN BY: Jennifer Ayala
-// RELEASE DATE: Pending / status updated 10/27/2019
-// VERSION 1.2
+//***************************************** Dashboard Page for the StarWars GUI ****************************//
+// WRITTEN BY: 		Jennifer Ayala
+// RELEASE DATE: 	IN DEVELOPMENT/ status updated 11/28/2019
+// VERSION:			1.4
 // 
 // PURPOSE: 		This file displays the member's profile - regular players, option to view 
 //					previous campaigns and update profile information
 //
 // MAJOR VARIABLES: 
-//		username - login username as registered in the user database table
-//		password - password saved in the users table, associated to the username & user id
-//		characterName - name of the game play character visible to all players in a campaign
-//		role - admin, dm, or player
-// *********************************************************************************************
+//					username - login username as registered in the user database table
+//					password - password saved in the users table, associated to the username & user id
+//					characterName - name of the game play character visible to all players in a campaign
+//					role - admin, dm, or player
+//
+// PENDING ACTION:  Secure database access by referencing aa DBConnect file and remove all direct references
+//					to DB connection information
+// ***********************************************************************************************************//
+
 	session_start();
     $_SESSION = array();
     session_destroy();	
@@ -22,14 +26,12 @@
 <html>
 	<head>
 		<title>Player Dashboard</title>
-		<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+		<meta http-equiv="content-type" content="text/html" charset="utf-8" />
 		<link rel="stylesheet" type="text/css" href="star-wars2.css" />
 	</head>
 	<body>
 	<br>
-		<h1> Player Dashboard! </h1>	
-		<br>
-		<br>
+		<h1> Player Dashboard </h1>	
 		<?php
 			//Pending: remove the $DBConnect & refer to $DBConnect file for additional security	 
 				$DBConnect = mysqli_connect("157.245.125.164", "root", "ahs0kaTan0");		
@@ -44,7 +46,7 @@
 				else {
 					$DBName = "StarWarsDND";
 					$result = @mysqli_select_db($DBName, $DBConnect);
-						echo "<h4> Successfully connected to the member's site!</h4>";
+						//echo "<h4> Successfully connected to the member's site!</h4>";
 						
 				
 					if ($result === FALSE) {
@@ -76,24 +78,76 @@
 				}
 		?>
 		<div class="container4">
+			<h2>Player Info </h2>
 			<?php					
 				$DBConnect = mysqli_connect("157.245.125.164", "root", "ahs0kaTan0","StarWarsDND");
 				$tableName = "users";
 				if ($errors == 0) {
-					$string = "SELECT * FROM users WHERE userid='" . $_SESSION['userid'] . "'";
+					$string = "SELECT * FROM profile JOIN users USING(userid) WHERE userid='" . $_SESSION['userid'] . "'";
 					$qResult = @mysqli_query($DBConnect, $string);
 					if ($errors == 0) {
 						$Row = mysqli_fetch_assoc($qResult);
 						$username = $Row['username'];
 						$userid = $Row['userid'];
-						echo "<p> Welcome back " . $username . "!</p>"; 		
-						echo "<p> UserID:         {$Row['userid']}</p>";
-						echo "<p> Username:       {$Row['username']}</p>";
-						echo "<p> Password:       {$Row['password']}</p>";
-						echo "<p> Character Name:      {$Row['characterName']}</p>";
-						echo "<p> Role:          {$Row['role']}</p>";									
-						//link directs to the edit page, passing the userid	
-						echo "<h4><a href='edit_member.php?" . "userid=$userid'> Edit Profile </a></h4>\n";	
+						echo "<p> Welcome back " . $username . "!</p>"; 
+						echo "<table width='80%'>\n";
+							echo "<tr>";
+								echo "<th>UserID</th>";
+								echo "<td>{$Row['userid']}</td>";
+							echo "</tr>";
+							echo "<tr>";
+								echo "<th>Username</th>";
+								echo "<td>{$Row['username']} </td>";
+							echo "</tr>";							
+							echo "<tr>";
+								echo "<th>Password</th>";
+								echo "<td>{$Row['password']} </td>";
+							echo "</tr>";						
+							echo "<tr>";
+								echo "<th>Character Name</th>";
+								echo "<td>{$Row['characterName']} </td>";
+							echo "</tr>";
+							
+							echo "<tr>";
+								echo "<th>Role</th>";
+								echo "<td>{$Row['role']}</td>";
+							echo "</tr>";							
+							echo "<tr>";
+								echo "<th>Skills</th>";
+								echo "<td> {$Row['skills']} </td>";
+							echo "</tr>";
+						echo "</table>";
+						echo "<h4> Character Ability & Skill Value </h4>";
+						echo "<table width='80%'>\n";
+							echo "<tr>";
+								echo "<th> Ability Score </th>";
+								echo "<td> {$Row['abilityScore']}</td>";
+							echo "</tr>";
+							echo "<tr>";
+								echo "<th>Modifer </th>";
+								echo "<td>{$Row['modifier']} </td>";
+							echo "</tr>";
+							
+							echo "<tr>";
+								echo "<th> Proficiency </th>";
+								echo "<td>{$Row['profienciency']} </td>";
+							echo "</tr>";
+							
+							echo "<tr>";
+								echo "<th> Difficulty Level </th>";
+								echo "<td>{$Row['difficulty']} </td>";
+							echo "</tr>";
+							
+							echo "<tr>";
+								echo "<th>Score Variant </th>";
+								echo "<td>{$Row['variant']} </td>";
+							echo "</tr>";
+							echo "<tr>";
+								echo "<th> Combined Score Qualifier</th>";
+								echo "<td>{$Row['qScore']}</td>";
+							echo "</tr>";
+					
+						echo "</table>";
 					}
 					if ($qResult === FALSE) {
 						echo "<p>Unable to execute the query. " . 
@@ -110,10 +164,37 @@
 				}		
 			?>
 		</div>
-		<hr>
-		<a href="campaigns.php" class="link" > View Campaigns </a>
-		<br>
-		<a href="logout.php" class="link" >Log Out</a>
+		<div class="container6">
+			<h2> Campaign Stats</h2>
+			<?php
+				$DBConnect = mysqli_connect("157.245.125.164", "root", "ahs0kaTan0","StarWarsDND");
+				$tableName1 = "users";
+				$tableName2 = "campaign_play";
+				if ($errors == 0) {
+					$string = "SELECT * FROM campaign_play WHERE userid='" . $_SESSION['userid'] . "'";
+					$qResult = @mysqli_query($DBConnect, $string);
+					$Row = array();
+					echo "<table width='80%'>\n";
+					echo "<tr><th>Campaign ID </th><th>Starting Health Points</th><th>Damage Taken</th><th>Ending Health Points</th></tr>\n";
+					while(($Row = mysqli_fetch_assoc($qResult)) > 0) {
+						$userid = $Row['userid'];	
+						echo "<tr><td text align='center'>{$Row['campaignID']}</td>";
+						echo "<td>{$Row['sHealthPoints']}</td>";
+						echo "<td> {$Row['damage']}</td>";
+						echo "<td> {$Row['eHealthPoints']}</td></tr>";						
+					};
+					echo "</table>\n";		
+				}		
+			?>
+		</div>		
+		<footer>
+			<hr>
+			<span> <> </span><span><a href="index.html" class="link"> HOME </a></span> 	
+			<span> <> </span><span><a href="edit_member.php?<?php echo strip_tags(SID); ?>" class="link"> EDIT PROFILE </a></span>	
+			<span> <> </span><span><a href="campaigns.php?<?php echo strip_tags(SID); ?>" class="link" > VIEW CAMPAIGNS </a></span>
+			<span> <> </span><span><a href="logout.php" class="link"> LOG OUT </a> 
+			<span> <> </span>
+		</footer>
 	</body>
 </html>
 <?php

@@ -1,4 +1,13 @@
 <?php
+//******************************Log Out Confirmation Page for the StarWars GUI ****************************************//
+// WRITTEN BY: 		Jennifer Ayala
+// RELEASE DATE: 	In Development / status updated 11/16/2019
+// VERSION:			1.2
+// 
+// PURPOSE: 		This file is displayed after redirect from the log out link on any page, once user is successfully
+//					logged out of the site - session is cleared to prevent back-button access to previous pages
+// *********************************************************************************************************************//
+
 session_start();
 	function logout()
 	{
@@ -21,25 +30,28 @@ session_start();
 <html >
 	<head>
 		<title>Member Log Out</title>
-		<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
-		<link rel="stylesheet" type="text/css" href="star-wars2.css" />
+		<meta http-equiv="content-type" content="text/html" charset="utf-8" />
+		<link rel="stylesheet" type="text/css" href="star-wars.css" />
 	</head>
 	<body>
 		<header>
 			<h1> Star Wars DND </h1>
-			<p></p>
-			<h2> Combat Stimulator </h2>
 		</header>
-		<br>
-		<br>
-		<h3> Successfully Logged out! </h3>
-		<a href="gLogin.php" class="link" >Log Back In</a>
-		<br>	
-
+		<div class="transbox">
+			<br>
+			<h3> Successfully Logged out! </h3>
+		</div>
 		<footer>
 			<hr>
+			<span> <> </span><span><a href="index.html" class="link"> HOME </a></span> 					
+			<span> <> </span><span><a href="gLogin.php" class="link"> LOG BACK IN </a></span> 
 			<span> <> </span>
+			<br><br>
+			<audio controls autoplay>
+				<source src="Main_Title.mp3" type="audio/mpeg">
+			</audio>
 		</footer>
+		
 	</body>
 </html>
 <?php
