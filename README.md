@@ -25,7 +25,7 @@ Pending:
 * Registration - update to new MySQL database //completed 11/23/2019
 * Member dashboard display of profile info, based on role //completed 11/23/2019
 * Link to combat point calculator
-* Create table for the campaigns
-* Create pages for the campaigns
+* Create table for the campaigns // complete 11/29/2019
+* Create pages for the campaigns 
 
 
