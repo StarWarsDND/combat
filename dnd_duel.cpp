@@ -1,6 +1,8 @@
-
+// This app runs the combat simulator, using the Player class
+#include <iomanip>
 #include <iostream>
-
+#include "Player.h"
+#include "Profile.h"
 
 using namespace std;
 
